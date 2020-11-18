@@ -763,6 +763,11 @@ Method.prototype.buildCall = function () {
             return method.requestManager.send(payload, sendTxCallback);
         };
 
+        // TODO troublor modify starts: trace sendTx
+        const {traceSendAsync} = require("./trace-instrument");
+        sendTxCallback = traceSendAsync(method.call, sendTxCallback);
+        // troublor modify ends
+
         // Send the actual transaction
         if (isSendTx && _.isObject(payload.params[0]) && typeof payload.params[0].gasPrice === 'undefined') {
 
