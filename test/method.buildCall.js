@@ -724,7 +724,11 @@ describe('lib/web3/method', function () {
 
         };
 
-        it('should fail with promise when subscribing and check for receipt and code if "sendTransaction" and deploying contract: if not receipt after 50 blocks', function (done) {
+        it('should fail with promise when subscribing and ' +
+            'check for receipt and code ' +
+            'if "sendTransaction" and ' +
+            'deploying contract: ' +
+            'if not receipt after 50 blocks', function (done) {
             var send = failOnTimeout();
 
             send({
