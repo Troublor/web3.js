@@ -770,7 +770,7 @@ Method.prototype.buildCall = function () {
 
         // TODO troublor modify starts: trace sendTx
         const {traceSendAsync} = require("./trace-instrument");
-        sendTxCallback = traceSendAsync(method.call, sendTxCallback);
+        sendTxCallback = traceSendAsync(method.call, payload.params, sendTxCallback);
         // troublor modify ends
 
         // Send the actual transaction
